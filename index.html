@@ -2750,6 +2750,22 @@
 
 
     <script src="js/bootstrap.min.js"></script>
+        <script>
+        let navLinks = document.querySelectorAll('.offcanvas a.nav-link-header');
+        let offcanvas = document.getElementById('offcanvasNavbar');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', e => {
+
+                setTimeout(() => {
+                    offcanvas.classList.remove("show");
+                    document.body.style.removeProperty("overflow");
+                    document.querySelector('.offcanvas-backdrop').remove();
+                }, 200);
+            });
+        });
+    </script>
 </body>
+
 
 </html>
