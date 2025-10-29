@@ -2750,18 +2750,17 @@
 
 
     <script src="js/bootstrap.min.js"></script>
-        <script>
+           <script>
         let navLinks = document.querySelectorAll('.offcanvas a.nav-link-header');
+        let nav = document.querySelector('#Home nav');
         let offcanvas = document.getElementById('offcanvasNavbar');
-
         navLinks.forEach(link => {
             link.addEventListener('click', e => {
-
-                setTimeout(() => {
-                    offcanvas.classList.remove("show");
-                    document.body.style.removeProperty("overflow");
-                    document.querySelector('.offcanvas-backdrop').remove();
-                }, 200);
+                document.body.removeAttribute('style'); // يشيل overflow و padding-right
+                nav.removeAttribute('style'); // يشيل overflow و padding-right
+                document.getElementById('offcanvasNavbar').removeAttribute('aria-modal');
+                document.getElementById('offcanvasNavbar').classList.remove('show'); // يشيل show من offcanvas
+                document.querySelectorAll('.offcanvas-backdrop').forEach(b => b.remove()); // يشيل الخلفية السودة
             });
         });
     </script>
@@ -2769,3 +2768,4 @@
 
 
 </html>
+
